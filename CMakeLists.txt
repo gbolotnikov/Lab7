@@ -5,7 +5,10 @@ set(PROJECT_VESRION 0.0.${PATCH_VERSION})
 
 project(bulk VERSION ${PROJECT_VESRION})
 
-add_executable(bulk main.cpp)
+add_executable(bulk main.cpp
+CommandManager.cpp
+FileWriter.cpp
+ConsoleReader.cpp)
 
 set_target_properties(bulk PROPERTIES
     CXX_STANDARD 17
