@@ -7,11 +7,17 @@
 
 int main(int argc, char* argv[])
 {
-    ConsoleWriter consoleWriter;
-    FileWriter fileWriter("bulk");
-    CommandManager commandManager;
-    commandManager.addWriter(consoleWriter);
-    commandManager.addWriter(fileWriter);
-    ConsoleReader consoleReader(commandManager, 3);
-    consoleReader.read();
+    if (argc > 1) {
+        size_t count = std::atoi(argv[1]);
+        ConsoleWriter consoleWriter;
+        FileWriter fileWriter("bulk");
+        CommandManager commandManager;
+        commandManager.addWriter(consoleWriter);
+        commandManager.addWriter(fileWriter);
+        ConsoleReader consoleReader(commandManager, count);
+        consoleReader.read();
+    } else {
+        std::cout << "Неверное количество параметров" << std::endl;
+    }
+    
 }
